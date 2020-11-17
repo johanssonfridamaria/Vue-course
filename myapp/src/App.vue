@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-   <navbar/>
+    <navbar />
+    <appfooter />
   </div>
 </template>
 
 <script>
-import Navbar from './components/navigation/Navbar'
+import Navbar from "./components/navigation/Navbar";
+import Footer from "./components/navigation/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Navbar,
-  }
-}
+    appfooter: Footer,
+  },
+};
 </script>
 
 <style>
-
 </style>
