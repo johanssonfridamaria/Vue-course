@@ -1,28 +1,63 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <navbar :name="name" :active="active" @signOut-user="signOut"/>
+    <div class="container d-flex main">
+      <appForm :name="name" :password="password" :error="error" :active="active" @signIn-user="signIn" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from "./components/Navbar";
+import appForm from "./components/Form";
 
 export default {
-  name: 'App',
+  name: "App",
+  props: [''],
   components: {
-    HelloWorld
+    Navbar,
+    appForm,
+  },
+  data(){
+    return{
+        name: '', 
+        password: '', 
+        active: false,
+        error: false,
   }
-}
+  },
+  methods:{
+    signIn(newUser){
+      this.name = newUser.name;
+      this.password = newUser.password;
+      this.active = newUser.active;
+      this.error = newUser.error;
+      },
+      signOut(){
+        this.name = '';
+        this.password = '';
+        this.active= false;
+      },    
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.container {
+  width: 80%;
+  margin: auto;
+}
+.d-flex {
+  display: flex;
+}
+.main {
+  justify-content: center;
 }
 </style>
