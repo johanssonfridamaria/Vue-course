@@ -11,7 +11,7 @@
         <input type="password" id="password" v-model="newPassword" />
       </div>
       <button type="submit">Sign in</button>
-      <p v-if="newError">You have already signed in!</p>
+      <p v-if="error">You have already signed in!</p>
     </form>
   </div>
 </template>
@@ -24,25 +24,22 @@ export default {
     return {
       newName: this.name,
       newPassword: this.password,
-      newError: this.error,
     };
   },
   methods: {
     signIn() {
       const isLoggedIn = this.active;
       if (isLoggedIn) {
-        this.newError = true;
+        this.error = true;
       } else {
       let user = {
         name: this.newName,
         password: this.newPassword,
         active: true,
-        error:this.newError
       };
       this.$emit("signIn-user", user);
       this.newName = "";
       this.newPassword = "";
-      this.newError = false;
       }
     },
   },

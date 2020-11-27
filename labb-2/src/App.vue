@@ -23,7 +23,6 @@ export default {
         name: '', 
         password: '', 
         active: false,
-        error: false,
   }
   },
   methods:{
@@ -31,7 +30,6 @@ export default {
       this.name = newUser.name;
       this.password = newUser.password;
       this.active = newUser.active;
-      this.error = newUser.error;
       },
       signOut(){
         this.name = '';
