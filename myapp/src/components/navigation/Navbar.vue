@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar"
+    class="navbar navbar-expand-lg navbar-dark pink scrolling-navbar"
   >
     <a class="navbar-brand" href="#"><strong>MyApp</strong></a>
     <button
